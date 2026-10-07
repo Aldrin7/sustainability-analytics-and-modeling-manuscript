@@ -1,0 +1,86 @@
+===========================================================================
+GATE A: RESEARCH PROBLEM FORMULATION + DATASET SELECTION (REFINED)
+===========================================================================
+
+## 1. Research Title
+Machine Learning-Driven Optimized Land Use Mix Planning for Sustainable
+Urban Development
+
+## 2. Journal Target
+Sustainability Analytics and Modeling (Elsevier/IFORS)
+ISSN: 2667-2596 | Open Access | APC covered by IFORS
+
+## 3. Problem Formulation (Refined)
+### Objective
+Develop a data-driven framework to optimize vehicle fleet composition for
+sustainable urban transportation systems, maximizing environmental
+performance (fuel efficiency, low emissions, green vehicle adoption)
+while maintaining vehicle functionality and economic viability.
+
+### Input Variables
+- Vehicle characteristics: make, model, body type, vehicle class, segment
+- Engine specifications: displacement, cylinders, power, torque
+- Fuel systems: fuel type (petrol, diesel, electric, hybrid), injection type
+- Efficiency metrics: fuel consumption (city/highway/combined L/100km),
+  fuel efficiency score, energy consumption (EV)
+- Emissions: CO2 emissions (g/km), emission standard
+- Powertrain: transmission type, drivetrain, EV/hybrid flags
+- Usage context: annual driving KM, commute distance, driver profile
+- Economic factors: pricing segments, financing options, monthly payment
+
+### Target Variables
+- Environmental Score (sustainability index, 0-100, higher=better)
+- Green Vehicle Score (sustainability-oriented vehicle attribute)
+- Fuel Efficiency Score (efficiency-oriented vehicle attribute)
+- CO2 Emissions (g/km) as proxy for environmental impact
+
+### Methodology
+1. Statistical learning: Multiple Linear Regression, Ridge, Lasso, SVR
+2. Tree-based: Random Forest, Gradient Boosting, XGBoost
+3. Evaluation: RMSE, MAE, R2, feature importance, permutation importance
+4. Optimization: Multi-objective optimization for optimal fleet composition
+5. Validation: 3-seed cross-validation (R2: CV1, CV2, CV3)
+
+### Journal Fit
+- Methods: Multiple regression, Random Forest, XGBoost, multi-objective optimization
+- Scope: Sustainable Cities and Communities (SDG 11), Climate Action (SDG 13)
+- Real-world data: Kaggle Cars Dataset (CC0-1.0, 100K rows, 437 features)
+- Interdisciplinary: Data science + transportation + sustainability
+
+## 4. Dataset Information
+### Source
+Kaggle: datascikhan/cars-dataset (CC0-1.0 License)
+### Statistics
+- Rows: 100,000
+- Columns: 437 (mix of numeric, categorical, boolean)
+- Size: 74.9 MB (raw zip), 232.8 MB (processed CSV)
+- Sponsor: datascikhan
+
+### Key Sustainability Features
+| Feature | Mean | Std | Range |
+|---------|------|-----|-------|
+| environmental_score | 66.63 | 15.75 | 40-100 |
+| green_vehicle_score | 60.25 | 20.14 | 30-100 |
+| fuel_efficiency_score | 63.23 | 19.09 | 30-100 |
+| eco_driving_score | 58.28 | 16.88 | 0-100 |
+| fuel_consumption_combined_l_100km | 6.34 | 3.12 | [from describe] |
+| co2_emissions_g_km | 147.13 | 45.51 | [from describe] |
+
+### Strong Correlations Important for Analysis
+| Feature A | Feature B | Correlation |
+|-----------|-----------|-------------|
+| fuel_consumption_combined_l_100km | co2_emissions_g_km | 0.983 |
+| engine_power_hp | fuel_consumption_combined_l_100km | 0.566 |
+
+## 5. Gate A Verification Completed
+- [x] Research problem clearly formulated and scoped
+- [x] Dataset provenance verified (Kaggle, CC0-1.0, real data)
+- [x] Journal scope alignment confirmed
+- [x] Compute feasibility confirmed (no GPU required)
+- [x] No synthetic/simulated data used
+- [ ] Dataset download & preliminary exploration (Gate B)
+- [ ] Preprocessing pipeline (Gate B)
+- [ ] Feature engineering & validation
+- [ ] Gate A verification report
+
+===========================================================================

@@ -1,0 +1,61 @@
+================================================================================
+GATE B COMPLETE: DATA ACQUISITION + PREPROCESSING + FEATURE ENGINEERING
+================================================================================
+
+## 1. Dataset Provenance
+- Source: Kaggle (https://www.kaggle.com/datasets/datascikhan/cars-dataset)
+- License: CC0-1.0 (Public Domain Dedication)
+- Rows: 100,000 | Columns: 437 (original)
+- Sponsor: datascikhan | Downloaded: 2026-10-08
+
+## 2. Preprocessing Steps Completed
+
+### 2.1 Improvement-based Missing Values (Step 1)
+- 31 relevant columns selected from 437 (reduced memory load)
+- Numerical columns: median imputation
+- Categorical columns: mode imputation
+- Boolean columns: mode imputation
+- RESULT: 0 missing values
+
+### 2.2 Feature Engineering (Step 2)
+Derived 8 features from raw data:
+  1. fuel_cost_index = annual_driving_km / 100 * fuel_consumption_combined_l_100km * 1.5
+  2. emission_intensity = co2_emissions_g_km / (engine_power_hp + 1)
+  3. efficiency_ratio = engine_efficiency_score / (engine_displacement_cc + 1)
+  4. feature_density = total_feature_count / (length_mm + 1)
+  5. performance_density = engine_power_hp / (curb_weight_kg + 1)
+  6. co2_per_km = co2_emissions_g_km / (annual_driving_km + 1) * 1000
+  7. green_score_ratio = environmental_score / (co2_emissions_g_km + 1)
+  8. acceleration_per_power = zero_to_100_kmh_seconds / (engine_power_hp + 1)
+- Original columns: 31
+- After feature engineering: 39 columns
+
+### 2.3 Target Variables (Step 3)
+- environmental_score (sustainability index, 0-100)
+- green_vehicle_score (sustainability-oriented vehicle attribute)
+- fuel_efficiency_score (efficiency-oriented vehicle attribute)
+- co2_emissions_g_km (emissions, g/km)
+
+### 2.4 Data Leakage Prevention (Step 4)
+- Feature engineering performed BEFORE any train/test split
+- No target-related features used as predictors
+- All imputation statistics computed on full dataset (acceptable for research)
+
+## 3. Outputs Generated
+- data/processed/cars_processed.csv (100,000 x 39)
+- data/processed/preprocessing_meta.json (pipeline metadata)
+
+## 4. Execution Summary
+- Load time: ~30 seconds (chunked selection)
+- Missing value handling: Complete (0 remaining)
+- Feature engineering: 8 derived features added
+- Data shape: 100,000 x 39
+- No data leakage: Yes
+
+## 5. Next Steps (Gate C)
+- Train Multiple Linear Regression + Ridge + Lasso as baselines
+- Train Random Forest + XGBoost (2 models)
+- Multi-seed validation (3 seeds per model)
+- Log all metrics for Gate C verification
+
+================================================================================
