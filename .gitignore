@@ -1,0 +1,16 @@
+# Large data artifacts (232MB dataset + derived outputs stay local)
+data/
+
+# Trained models / encoders
+*.joblib
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# paperreview.ai review token (grants review access — never commit)
+docs/manuscript/paperreview.token.txt
+
+# Logs
+*.log
