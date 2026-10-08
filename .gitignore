@@ -17,3 +17,4 @@ docs/manuscript/paperreview.token.txt
 
 # Logs
 *.log
+*.err
