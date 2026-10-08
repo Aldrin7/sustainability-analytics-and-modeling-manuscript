@@ -1,3 +1,6 @@
+# Kaggle API credentials (kaggle.json) — never commit
+.kaggle/
+
 # Large data artifacts (232MB dataset + derived outputs stay local)
 data/
 
